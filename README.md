@@ -6,10 +6,12 @@
 
 ---
 
-## 🚀 Overview
+## Overview
+
 This repository contains a production-grade Autonomous AI Research Agent. Given a broad research topic, the agent dynamically plans search queries, orchestrates live web retrieval using a custom MCP server, grounds its knowledge using a vector database (ChromaDB), and synthesizes comprehensive multi-page technical reports in Markdown format.
 
-## 🧠 Core Architecture
+## Architecture
+
 The system is built on four core technical pillars:
 
 1. **LangGraph (Multi-Agent State Machine)**
@@ -27,27 +29,23 @@ The system is built on four core technical pillars:
 4. **Structured Generation**
    - Forces the LLM to output structured data schemas for predictable pipeline parsing and robust section writing.
 
-## 🛠️ Tech Stack
-- **Languages:** Python (Jupyter Notebooks)
-- **AI Frameworks:** LangChain, LangGraph
-- **Tooling Standards:** Model Context Protocol (MCP) by Anthropic
-- **Vector Databases:** ChromaDB
-- **Dependency Management:** `uv`
-
 ## 📁 Repository Structure
-*   `src/deep_research_advanced.ipynb`: The primary executable graph (includes the injected `%%writefile` block for the MCP server).
-*   `src/data/`: The destination directory where the agent automatically persists finalized Markdown research reports.
-*   `src/vector_store/`: The local persistent directory for ChromaDB embeddings.
-*   `uv.lock` & `pyproject.toml`: Dependency resolution handled natively by `uv`.
+
+- `reports/`: The destination directory where the agent automatically persists finalized Markdown research reports.
+
+* `src/deep_research_advanced.ipynb`: The primary executable graph (includes the injected `%%writefile` block for the MCP server).
+
+- `uv.lock` & `pyproject.toml`: Dependency resolution handled natively by `uv`.
 
 ## ⚙️ How to Run
+
 1. Clone this repository.
-2. Install dependencies using `uv`:
+2. create a .env file and add OPENAI_API_KEY="your-key" to it.
+3. Install dependencies using `uv`:
+
    ```bash
    uv sync
    ```
-3. Open `src/deep_research_advanced.ipynb` in a Jupyter environment.
-4. Run all cells. The first cell will automatically generate the required MCP Server file, and the execution graph will launch in the background to fulfill your research topic.
 
-## 📈 Author
-**Gourang Kamal Nagar**
+4. Open `src/deep_research_advanced.ipynb` in a Jupyter environment.
+5. Run all cells. The first cell will automatically generate the required MCP Server file, and the execution graph will launch in the background to fulfill your research topic.
